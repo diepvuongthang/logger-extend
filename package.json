@@ -1,6 +1,6 @@
 {
   "name": "logger-extend",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "logger extend",
   "main": "index.js",
   "repository": {
@@ -37,7 +37,6 @@
   },
   "dependencies": {
     "@kevit/log4js-hangout": "^1.0.3",
-    "@log4js-node/slack": "^1.0.0",
     "lodash": "4.17.21",
     "log4js": "^6.6.1",
     "request": "2.88.2"
