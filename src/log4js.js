@@ -67,7 +67,9 @@ const createLogger = defaultAppName => {
       channelId: process.env.LOG_SLACK_CHANNEL_ID,
       token: process.env.LOG_SLACK_TOKEN,
       level: process.env.LOG_SLACK_LOG_LEVEL || 'info',
-      webhookUrl: process.env.LOG_SLACK_WEB_HOOK_URL
+      webhookUrl: process.env.LOG_SLACK_WEB_HOOK_URL,
+      maxLength: process.env.LOG_SLACK_MAX_LENGTH || 1000,
+      timezoneOffset: process.env.LOG_SLACK_TIMEZONE_OFFSET
     }
   };
   const logLayout = {
@@ -173,6 +175,8 @@ const createLogger = defaultAppName => {
       // token: config.slack.token,
       // username: config.app.name,
       webhook: config.slack.webhookUrl,
+      maxLength: config.slack.maxLength,
+      timezoneOffset: config.slack.timezoneOffset,
       layout: {
         type: 'pattern',
         pattern: `%h - \`${config.app.name}\` %n\`\`\`%d{yyyy-MM-dd hh:mm:ss.SSS} %p %z %m\`\`\``

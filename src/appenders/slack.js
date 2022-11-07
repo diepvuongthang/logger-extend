@@ -4,8 +4,13 @@ var request = require("request");
 
 function slackAppender(config, layout) {
     return (loggingEvent) => {
-      request.post(config.webhook, {
-            json: { text: layout(loggingEvent, config.timezoneOffset) }
+        let text = layout(loggingEvent, config.timezoneOffset);
+        let maxLength = config.maxLength;
+        if (text.length > maxLength) {
+            text = text.substring(0, maxLength) + '...```';
+        }
+        request.post(config.webhook, {
+            json: { text: text }
         }, (error, res, body) => {
             if (error) {
                 console.error('log4js:slack - Error sending log to slack: ', error) //eslint-disable-line

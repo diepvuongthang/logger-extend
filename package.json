@@ -1,6 +1,6 @@
 {
   "name": "logger-extend",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "logger extend",
   "main": "index.js",
   "repository": {
